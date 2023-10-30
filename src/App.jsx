@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import RentalItemCard from './RentalItemCard';
+import RentalItemCards from './RentalItemCards';
 import Navbar from './Navbar';
 import ItemDetail from './ItemDetail';
 
 function App() {
   const [items, setItems] = useState([]);
 
-  const url = 'http://localhost:3000/';
+  const url = 'http://192.168.4.75:3000/';
 
   useEffect(() => {
     getRentalItems();
@@ -33,7 +33,7 @@ function App() {
         />
         <Route
           path="/"
-          element={<><Navbar /><RentalItemCard items={items} /></>} />
+          element={<><Navbar /><RentalItemCards items={items} /></>} />
       </Routes>
     </Router>
   );

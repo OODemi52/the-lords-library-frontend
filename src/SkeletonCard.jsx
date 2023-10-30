@@ -1,95 +1,41 @@
 import {
-  Card,
   Box,
-  Chip,
-  Button,
+  Grid,
+  Skeleton
 } from "@mui/material";
 
-const SkeletonCard = () => (
-    <Card
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        alignItems: "center",
-        backgroundColor: "rgba(15, 82, 185, 0.85)",
-        boxShadow: 10,
-        borderRadius: 1,
-        border: 0.5,
-        borderColor: "#1848a0",
-        height: 200, // Adjust the height as needed
-      }}
-    >
-      {/* Add skeleton elements */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          flexGrow: 1,
-          justifyContent: "left",
-          alignItems: "flex-start",
-        }}
-      >
-        <Box
-          sx={{
-            display: "flex",
-            color: "white",
-            height: 30, // Adjust the height as needed
-            width: "80%", // Adjust the width as needed
-            bgcolor: "rgba(255, 255, 255, 0.3)", // Adjust the background color as needed
-            borderRadius: 4,
-            marginBottom: 10, // Adjust the margin as needed
-          }}
-        ></Box>
-        <Box
-          sx={{
-            display: "flex",
-            height: 20, // Adjust the height as needed
-            width: "60%", // Adjust the width as needed
-            bgcolor: "rgba(255, 255, 255, 0.3)", // Adjust the background color as needed
-            borderRadius: 4,
-            marginBottom: 10, // Adjust the margin as needed
-          }}
-        ></Box>
-        <Box
-          sx={{
-            display: "flex",
-            height: 20, // Adjust the height as needed
-            width: "90%", // Adjust the width as needed
-            bgcolor: "rgba(255, 255, 255, 0.3)", // Adjust the background color as needed
-            borderRadius: 10,
-          }}
-        ></Box>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "right",
-          pr: "1rem",
-        }}
-      >
-        <Chip
-          label={`Available: Loading...`}
-          variant="outlined"
-          sx={{
-            p: 2,
-            m: 1,
-            bgcolor: "#ccff90",
-            border: 1,
-            borderColor: "#64dd17",
-            color: "#424242",
-            boxShadow: 2,
-          }}
-        />
-        <Button
-          variant="contained"
-          disabled
-        >
-          Loading...
-        </Button>
-      </Box>
-    </Card>
+
+const SkeletonCard = () =>  {
+
+return (
+            <Grid container spacing={2} sx={{ display: "flex", flexDirection: "row", justifyContent: "space-around", alignItems: "center", borderRadius: 1, backgroundColor: 'hsl(200, 20%, 90%)', }}>
+              
+              {/* Item Media */}
+              <Grid item xs={12} md={3} lg={3} xl={3} sx={{ borderRadius: 1, width: '100%', height: 225, backgroundColor: 'hsl(200, 20%, 95%)',}} ></Grid>
+
+              {/* Item Info */}
+              <Grid item sx={{ ml: 5, display: "flex", flexDirection: "column", flexGrow: 1, justifyContent: "left", alignItems: "flex-start", }}>
+                <Skeleton animation='wave' variant='rounded' height={45} sx={{ width: '80%', }} />
+                <br />
+                <br />
+                <Box sx={{ display: 'inline-flex', alignItems: 'center' }}>
+                  <Skeleton animation='wave' variant="circular" width={15} height={15} sx={{ mr: 1, }} />
+                  <Skeleton animation='wave' variant='rounded' width={150} height={15} sx={{ width: '80%', }} />
+                </Box>
+                <br />
+                <Skeleton animation='wave' variant='rounded' height={15} sx={{ mb: 1, width: '80%', }} />
+                <Skeleton animation='wave' variant='rounded' height={15} sx={{ mb: 3, width: '80%', }}/>
+              </Grid>
+
+              {/* Item Buttons */}
+              <Grid item sx={{ display: "flex", flexDirection: "column", alignContent: "right", pr: "1rem", }}>
+                <Skeleton animation='wave'  variant='rounded' width={95} height={2} sx={{ p: 2, m: 1, borderRadius: 4, width: 95, height: 2, }} />
+                <Skeleton animation='wave' variant='rounded' width={95} height={2} sx={{ p: 2, m: 1, mb:3 }} />
+              </Grid>
+
+            </Grid>
   );
+}
+
 
   export default SkeletonCard;
