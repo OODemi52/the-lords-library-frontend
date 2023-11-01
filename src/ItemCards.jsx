@@ -11,6 +11,7 @@ import {
   styled,
 } from "@mui/material";
 import ReserveButton from './ReserveButton';
+import ReservationConfirmation from './ReservationConfirmation';
 import SkeletonCards from './SkeletonCards';
 
 // Styled components
@@ -56,13 +57,13 @@ const ResponsiveBox = styled(Box)({
   },
 });
 
-const RentalItemCards = ({ items }) => {
+const ItemCards = ({ items }) => {
   if (!Array.isArray(items)) {
     console.error("Invalid 'items' prop. Expected an array.");
     return null;
   }
 
-  if (items.length === 0) {
+  if (items.length == 0) {
     return <SkeletonCards numOfCards={6} />;
   }
 
@@ -139,7 +140,7 @@ const RentalItemCards = ({ items }) => {
                   boxShadow: 2,
                 }}
               />
-              <ReserveButton item={item} />
+              <ReserveButton onReserveClick={ReservationConfirmation} />
             </ResponsiveBox>
           </ResponsiveCard>
           <br />
@@ -150,7 +151,7 @@ const RentalItemCards = ({ items }) => {
   );
 };
 
-RentalItemCards.propTypes = {
+ItemCards.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       _id: PropTypes.string.isRequired,
@@ -163,4 +164,4 @@ RentalItemCards.propTypes = {
   ),
 };
 
-export default RentalItemCards;
+export default ItemCards;

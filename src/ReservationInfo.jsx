@@ -1,8 +1,10 @@
 import { Container, Card } from "@mui/material"
 import ReserveButton from "./ReserveButton"
 import CalendarPicker from "./CalendarPicker"
+import ReservationConfirmation from "./ReservationConfirmation"
+import PropTypes from 'prop-types'
 
-const ReservationInfoBox = () => {
+const ReservationInfo = ({ onReserveClick }) => {
   return (
     <Container>
       <Card
@@ -21,10 +23,14 @@ const ReservationInfoBox = () => {
         }}
       >
         <CalendarPicker />
-        <ReserveButton />
+        <ReserveButton onReserveClick={ReservationConfirmation} />
       </Card>
     </Container>
   )
 }
 
-export default ReservationInfoBox
+ReservationInfo.propTypes = {
+  onReserveClick: PropTypes.func.isRequired,
+};
+
+export default ReservationInfo

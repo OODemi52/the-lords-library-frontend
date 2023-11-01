@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import ItemInfoBox from './ItemInfoBox';
-import ReservationInfoBox from './ReservationInfoBox';
+import ReservationInfo from './ReservationInfo';
 import { Container, Button, Grid, ImageList, ImageListItem} from '@mui/material';
+import ReservationConfirmation from './ReservationConfirmation';
 import PropTypes from 'prop-types'; 
 
 export default function ItemDetail({ items }) {
@@ -96,7 +97,7 @@ export default function ItemDetail({ items }) {
           <ItemInfoBox />
         </Grid>
         <Grid item xs={12} md={6} lg={6}>
-        <ReservationInfoBox />
+        <ReservationInfo onReserveClick={ReservationConfirmation} />
         </Grid>
       </Grid>
   </Container>
